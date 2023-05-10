@@ -11,7 +11,6 @@ public class Contenedor implements Serializable {
     String descripcion;
     String empresaEnvia;
     String empresaRecibe;
-    int indice;
     public Contenedor(int id,double peso,String pais,boolean aduanas,int prioridad,String descripcion,String empresaEnvia,String empresaRecibe){
         this.id=id;
         if(peso>0)this.peso=peso;
