@@ -12,7 +12,6 @@ public class Puerto implements Serializable {
             hubs[i]=new Hub(10,12);
         }
     }
-
     public String toString(){
         String resultado="";
         for(int i=0;i<3;i++){

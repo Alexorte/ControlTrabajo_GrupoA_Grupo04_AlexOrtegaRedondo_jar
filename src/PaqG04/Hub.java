@@ -34,24 +34,24 @@ public class Hub implements Serializable {
     }
     public boolean apilarContenedor(Contenedor contenedor) {
             if (contenedor.prioridad == 1) {
-                    for (int f = contenedores.length-1; f >= 0; f--) {
-                        if (contenedores[f][0] == null) {
-                            contenedores[f][0] = contenedor;
-                            return true;
-                        }
+                for (int f = contenedores.length-1; f >= 0; f--) { //solo nos recorremos las filas porque solo nos interesa apilar en la primera columna
+                    if (contenedores[f][0] == null) {
+                        contenedores[f][0] = contenedor;
+                        return true;
                     }
-                return false;
+                }
+                    return false;
             }
-            if (contenedor.prioridad == 2) {
-                        for (int f = contenedores.length-1; f >= 0; f--) {
-                            if (contenedores[f][1] == null) {
-                                contenedores[f][1] = contenedor;
-                                return true;
-                            }
-                        }
+            if(contenedor.prioridad == 2) {
+                for (int f = contenedores.length-1; f >= 0; f--) {
+                    if (contenedores[f][1] == null) {
+                        contenedores[f][1] = contenedor;
+                        return true;
+                    }
+                }
                     return false;
                 }
-            for (int c = 2; c < contenedores[0].length; c++) {
+            for (int c = 2; c < contenedores[0].length; c++) { //aqui si que nos recorremos cxf porque los de prioridad 3 se meten al final
                     for (int f = contenedores.length - 1; f >= 0; f--) {
                         if (contenedores[f][c] == null) {
                             contenedores[f][c] = contenedor;
@@ -89,8 +89,8 @@ public class Hub implements Serializable {
                                 resultado+="Empresa que lo envía: "+contenedores[f][c].empresaEnvia+"\n";
                                 resultado+="Empresa que lo recibe: "+contenedores[f][c].empresaRecibe+"\n";
                                 return resultado;
+                            }
                         }
-                    }
                     }
                 }
                 return "0";
