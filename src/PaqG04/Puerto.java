@@ -45,5 +45,13 @@ public class Puerto implements Serializable {
         int resultado=hubs[nHub].calcularContenedoresDeterminadoPais(pais);
         return "En el hub "+nHub+" hay "+resultado+" contenedores del país "+pais;
     }
-
+    public String buscar(int prioridad){
+        String resultado=hubs[0].buscar(prioridad);
+        resultado+=hubs[1].buscar(prioridad);   //lo hago asi porque recorriendome el hub no me lo reconocia
+        resultado+=hubs[2].buscar(prioridad);   //los voy concatenando
+        if(resultado.equals("0")){
+            return "No hay ningun contenedor con esa prioridad";
+        }
+        return resultado;
+    }
 }

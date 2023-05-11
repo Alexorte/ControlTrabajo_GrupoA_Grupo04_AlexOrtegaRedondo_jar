@@ -108,4 +108,19 @@ public class Hub implements Serializable {
         }
         return cont;
     }
+    public String buscar(int prioridad){
+        String resultado="";
+        for (int f = 0; f < contenedores.length; f++) {
+            if(contenedores[contenedores.length-1][f]!=null){
+                if(contenedores[contenedores.length-1][f].prioridad==prioridad){
+                    resultado+="Id: "+contenedores[contenedores.length-1][f].id+"\n";
+                    resultado+="Peso: "+contenedores[contenedores.length-1][f].peso+"\n";
+                    resultado+="Control de aduanas: "+contenedores[contenedores.length-1][f].aduanas+"\n";
+                    resultado+="Empresa que lo envía: "+contenedores[contenedores.length-1][f].empresaEnvia+"\n";
+                    return resultado;
+                }
+            }
+        }
+        return "0";
+    }
 }
